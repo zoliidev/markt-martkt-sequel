@@ -1,6 +1,7 @@
 package com.example.beadando;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button Bt;
     private String st;
+    HashMap<String, String> params;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +39,13 @@ public class MainActivity extends AppCompatActivity {
         Bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), username.getText() + "\n" + pass.getText(), Toast.LENGTH_LONG).show();
-                //Itt akad meg!
-                HashMap<String, String> params = null;
-
-                params.put("username", username.getText().toString());
+                //Toast.makeText(getApplicationContext(), username.getText() + "\n" + pass.getText(), Toast.LENGTH_LONG).show();
+                params = new HashMap<>();
+                params.put("name", username.getText().toString());
                 params.put("password", pass.getText().toString());
+
                 StringBuilder sbParams = new StringBuilder();
-                int i = 0;
+                int i = 2;
                 for (String key : params.keySet()) {
                     try {
                         if (i != 0){
@@ -59,8 +60,11 @@ public class MainActivity extends AppCompatActivity {
                     i++;
                 }
                 HttpURLConnection conn = null;
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                        .permitAll().build();
+                StrictMode.setThreadPolicy(policy);
                 try{
-                    String url = "https://oldal.vaganyzoltan.hu/API/login.php";
+                    String url = "https://oldal.vaganyzoltan.hu/api/login.php";
                     URL urlObj = new URL(url);
                     conn = (HttpURLConnection) urlObj.openConnection();
                     conn.setDoOutput(true);
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     Log.d("test", "result from server: " + result.toString());
+                    Toast.makeText(getApplicationContext(), result.toString(), Toast.LENGTH_LONG).show();
 
                 } catch (IOException e) {
                     e.printStackTrace();
