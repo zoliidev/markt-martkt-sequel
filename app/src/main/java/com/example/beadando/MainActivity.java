@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -27,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button Bt;
     private String st;
-    HashMap<String, String> params;
+    private HashMap<String, String> params;
+    //private JSONObject jsonObject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Log.d("test", "result from server: " + result.toString());
                     Toast.makeText(getApplicationContext(), result.toString(), Toast.LENGTH_LONG).show();
+                    //jsonObject = new JSONObject();
 
                 } catch (IOException e) {
                     e.printStackTrace();
