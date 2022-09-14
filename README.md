@@ -5,7 +5,7 @@
 > #### Login-API
 > https://oldal.vaganyzoltan.hu/api/login.php
 > POST-request-ben kell elküldeni:
-> - username
+> - name (username)
 > - password
 > - token (ha van)
 > - deviceName
