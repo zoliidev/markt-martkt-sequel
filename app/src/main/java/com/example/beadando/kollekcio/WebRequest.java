@@ -19,14 +19,13 @@ public class WebRequest {
     public static String sendWebRequest(String url, HashMap<String, String> params) {
         //Toast.makeText(getApplicationContext(), username.getText() + "\n" + pass.getText(), Toast.LENGTH_LONG).show();
         StringBuilder sbParams = new StringBuilder();
-        int i = 2;
+        int i = 0;
         for (String key : params.keySet()) {
             try {
                 if (i != 0){
                     sbParams.append("&");
                 }
-                sbParams.append(key).append("=")
-                        .append(URLEncoder.encode(params.get(key), "UTF-8"));
+                sbParams.append(key).append("=").append(URLEncoder.encode(params.get(key), "UTF-8"));
 
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
@@ -34,8 +33,7 @@ public class WebRequest {
             i++;
         }
         HttpURLConnection conn = null;
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                .permitAll().build();
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         try{
             URL urlObj = new URL(url);

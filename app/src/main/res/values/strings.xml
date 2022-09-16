@@ -3,4 +3,10 @@
     <string name="button">Button</string>
     <string name="name">Name</string>
     <string name="marktmarkt_bejelentkez_s">MarktMarkt Bejelentkezés</string>
+    <string name="bejelentkez_s">Bejelentkezés</string>
+    <string name="dialog_message">Hiba, nem sikerült kapcsolódni a távoli szerverhez...</string>
+    <string name="dialog_title">Csatlakozási hiba</string>
+    <string name="dialog_ok">Rendben</string>
+    <string name="ok">OK</string>
+    <string name="okteszt">ok</string>
 </resources>
