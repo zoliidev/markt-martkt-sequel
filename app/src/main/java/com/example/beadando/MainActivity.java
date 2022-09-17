@@ -4,6 +4,7 @@ import static com.example.beadando.kollekcio.WebRequest.sendWebRequest;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,8 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
     private Button Bt;
+    //ideiglenes gomb
+    private Button TesztBt;
     private String st;
 
     //private JSONObject jsonObject;
@@ -46,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
                     dialog.show();
                 }else
                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        //tesztgomb továbblépés
+        TesztBt = findViewById(R.id.scroll_activity_button);
+        TesztBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ScrollingActivity.class);
+                startActivity(intent);
             }
         });
     }
