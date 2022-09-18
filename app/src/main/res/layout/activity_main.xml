@@ -72,5 +72,16 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+    <EditText
+        android:id="@+id/prod_id"
+        android:layout_width="124dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/scroll_activity_button"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

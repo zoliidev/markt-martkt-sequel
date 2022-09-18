@@ -2,6 +2,7 @@ package com.example.beadando;
 
 import static com.example.beadando.kollekcio.WebRequest.sendWebRequest;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
         Bt = findViewById(R.id.loginButton);
         EditText username = findViewById(R.id.textBox);
         EditText pass = findViewById(R.id.passBox);
+        EditText prodId = findViewById(R.id.prod_id);
+
         Bt.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SuspiciousIndentation")
             @Override
             public void onClick(View view) {
                 HashMap<String, String> params = new HashMap<>();
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ScrollingActivity.class);
+                intent.putExtra("prodId", prodId.getText().toString());
                 startActivity(intent);
             }
         });
